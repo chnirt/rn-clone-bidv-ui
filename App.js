@@ -21,7 +21,7 @@ const boxSize = dotSize * 4;
 const backgroundColor = '#D3D3D3';
 
 const App = () => {
-  const {width, height} = useWindowDimensions();
+  const {width} = useWindowDimensions();
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const backgroundTranslateY = scrollY.interpolate({
