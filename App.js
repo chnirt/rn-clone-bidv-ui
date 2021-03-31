@@ -6,10 +6,9 @@
  * @flow strict-local
  */
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import {
   ScrollView,
-  Image,
   Text,
   View,
   useWindowDimensions,
@@ -128,7 +127,7 @@ const App = () => {
         />
 
         <View style={{top: -16, borderRadius: 16, backgroundColor}}>
-          <ScrollView horizontal style={{padding: 16}}>
+          <ScrollView horizontal style={{margin: 16}}>
             {[...Array(6).keys()].map(element => (
               <View
                 key={element}
@@ -148,7 +147,7 @@ const App = () => {
             width,
             aspectRatio: 1,
             flexWrap: 'wrap',
-            padding: 16,
+            margin: 16,
           }}>
           {[...Array(4).keys()].map(element => (
             <View
@@ -169,7 +168,7 @@ const App = () => {
             style={{
               width,
               aspectRatio: 1,
-              padding: 16,
+              margin: 16,
             }}>
             <Text
               style={{
