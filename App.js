@@ -18,14 +18,15 @@ import {
 
 const dotSize = 20;
 const boxSize = dotSize * 4;
+const backgroundColor = '#D3D3D3';
 
 const App = () => {
   const {width, height} = useWindowDimensions();
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const backgroundTranslateY = scrollY.interpolate({
-    inputRange: [0, width * 2],
-    outputRange: [width * 2, 0],
+    inputRange: [0, width * 2.325],
+    outputRange: [width * 2.325, 0],
     extrapolate: 'clamp',
   });
 
@@ -41,6 +42,7 @@ const App = () => {
 
           justifyContent: 'center',
           alignItems: 'center',
+          backgroundColor,
         }}>
         <Animated.View
           style={{
@@ -96,12 +98,11 @@ const App = () => {
       </View>
 
       <ScrollView
-        style={{
-          flex: 1,
+        contentContainerStyle={{
+          borderColor: 'blue',
+          borderWidth: 1,
           borderRadius: 16,
-          // borderColor: 'orange',
-          // borderWidth: 1,
-          top: 0,
+          paddingBottom: 26,
         }}
         scrollEventThrottle={16}
         onScroll={Animated.event(
@@ -125,8 +126,9 @@ const App = () => {
           }}
           resizeMode="cover"
         />
-        <View>
-          <ScrollView horizontal contentContainerStyle={{padding: 16}}>
+
+        <View style={{top: -16, borderRadius: 16, backgroundColor}}>
+          <ScrollView horizontal style={{padding: 16}}>
             {[...Array(6).keys()].map(element => (
               <View
                 key={element}
@@ -139,62 +141,63 @@ const App = () => {
                 }}></View>
             ))}
           </ScrollView>
-          <View
-            style={{
-              width,
-              aspectRatio: 1,
-              flexWrap: 'wrap',
-              padding: 16,
-            }}>
-            {[...Array(4).keys()].map(element => (
-              <View
-                key={element}
-                style={{
-                  width: (width - 16 * 2) * 0.5,
-                  aspectRatio: 1,
+        </View>
 
-                  borderColor: 'green',
-                  borderWidth: 1,
-                }}
-              />
-            ))}
-          </View>
+        <View
+          style={{
+            width,
+            aspectRatio: 1,
+            flexWrap: 'wrap',
+            padding: 16,
+          }}>
           {[...Array(4).keys()].map(element => (
             <View
               key={element}
               style={{
-                width,
+                width: (width - 16 * 2) * 0.5,
                 aspectRatio: 1,
-                padding: 16,
-              }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontWeight: 'bold',
-                  textAlignVertical: 'center',
 
-                  paddingVertical: 16 * 0.5,
-                }}>
-                Lorem ipsm
-              </Text>
-              <View
-                style={{
-                  flexWrap: 'wrap',
-                }}>
-                {[...Array(9).keys()].map(element => (
-                  <View
-                    key={element}
-                    style={{
-                      width: (width - 16 * 2) / 3,
-                      aspectRatio: 1,
-                      borderColor: 'red',
-                      borderWidth: 1,
-                    }}></View>
-                ))}
-              </View>
-            </View>
+                borderColor: 'green',
+                borderWidth: 1,
+              }}
+            />
           ))}
         </View>
+        {[...Array(4).keys()].map(element => (
+          <View
+            key={element}
+            style={{
+              width,
+              aspectRatio: 1,
+              padding: 16,
+            }}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: 'bold',
+                textAlignVertical: 'center',
+
+                paddingVertical: 16 * 0.5,
+              }}>
+              Lorem ipsm
+            </Text>
+            <View
+              style={{
+                flexWrap: 'wrap',
+              }}>
+              {[...Array(9).keys()].map(element => (
+                <View
+                  key={element}
+                  style={{
+                    width: (width - 16 * 2) / 3,
+                    aspectRatio: 1,
+                    borderColor: 'red',
+                    borderWidth: 1,
+                  }}></View>
+              ))}
+            </View>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );
