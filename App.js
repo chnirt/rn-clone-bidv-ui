@@ -14,10 +14,12 @@ import {
   useWindowDimensions,
   Animated,
 } from 'react-native';
+import Bank from './src/assets/svg/002-bank.svg';
 
 const dotSize = 20;
 const boxSize = dotSize * 4;
 const backgroundColor = '#D3D3D3';
+const iconSize = 40;
 
 const App = () => {
   const {width} = useWindowDimensions();
@@ -134,10 +136,14 @@ const App = () => {
                 style={{
                   width: (width - 16 * 2) * 0.25,
                   aspectRatio: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
 
-                  borderColor: 'red',
-                  borderWidth: 1,
-                }}></View>
+                  // borderColor: 'red',
+                  // borderWidth: 1,
+                }}>
+                <Bank width={iconSize} height={iconSize} />
+              </View>
             ))}
           </ScrollView>
         </View>
@@ -155,11 +161,14 @@ const App = () => {
               style={{
                 width: (width - 16 * 2) * 0.5,
                 aspectRatio: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
 
-                borderColor: 'green',
-                borderWidth: 1,
-              }}
-            />
+                // borderColor: 'green',
+                // borderWidth: 1,
+              }}>
+              <Bank width={iconSize} height={iconSize} />
+            </View>
           ))}
         </View>
         {[...Array(4).keys()].map(element => (
@@ -190,9 +199,14 @@ const App = () => {
                   style={{
                     width: (width - 16 * 2) / 3,
                     aspectRatio: 1,
-                    borderColor: 'red',
-                    borderWidth: 1,
-                  }}></View>
+                    justifyContent: 'center',
+                    alignItems: 'center',
+
+                    // borderColor: 'red',
+                    // borderWidth: 1,
+                  }}>
+                  <Bank width={iconSize} height={iconSize} />
+                </View>
               ))}
             </View>
           </View>
